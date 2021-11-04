@@ -5,11 +5,6 @@ const twig = require("twig");
 const TwigWrapper = require("./src/TwigWrapper");
 
 module.exports = class {
-    defaultOptionsPdf = {
-        headerTemplate: null,
-        footerTemplate: null
-    }
-
     constructor () {
         this.browser = null;
         this.initTwig();
