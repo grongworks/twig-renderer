@@ -5,9 +5,8 @@ const twig = require("twig");
 
 module.exports = class {
     constructor () {
-        this
-            .initBrowser()
-            .initTwig();
+        this.browser = null;
+        this.initTwig();
     }
 
     initTwig () {
@@ -15,8 +14,8 @@ module.exports = class {
         return this;
     }
 
-    initBrowser () {
-        this.browser = puppeteer.launch({
+    async initBrowser () {
+        this.browser = await puppeteer.launch({
             headless: true,
             args: ["--no-sandbox", "--disable-setuid-sandbox"],
         });
@@ -29,7 +28,8 @@ module.exports = class {
         return this;
     }
 
-    render (templatePath, data) {
+    async render (templatePath, data) {
+        if (this.browser === null) await this.initBrowser();
         if (!fs.existsSync(templatePath)) throw new Error("template_file_not_exists");
 
         const renderedHtml = this.twig.renderFile(templatePath, data, (error, html) => {
