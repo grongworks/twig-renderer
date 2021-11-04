@@ -2,6 +2,7 @@ const path = require("path");
 const fs = require("fs");
 const puppeteer = require("puppeteer");
 const twig = require("twig");
+const TwigWrapper = require("./src/TwigWrapper");
 
 module.exports = class {
     constructor () {
@@ -10,7 +11,7 @@ module.exports = class {
     }
 
     initTwig () {
-        this.twig = twig;
+        this.twig = new TwigWrapper();
         return this;
     }
 
@@ -32,9 +33,15 @@ module.exports = class {
         if (this.browser === null) await this.initBrowser();
         if (!fs.existsSync(templatePath)) throw new Error("template_file_not_exists");
 
-        const renderedHtml = this.twig.renderFile(templatePath, data, (error, html) => {
-            if (error !== null) throw new Error("error_rendering_template");
-            debugger;
-        });
+        this.renderedHtml = await this.twig.renderFile(templatePath, data);
+        return this;
+    }
+
+    async toHtml () {
+        return this.renderedHtml;
+    }
+
+    async toPdf () {
+
     }
 }
