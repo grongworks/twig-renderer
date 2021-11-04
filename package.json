@@ -1,6 +1,6 @@
 {
   "name": "twig-renderer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Provides functionality to render twig-templates to HTML or to PDF using Puppeteer.",
   "main": "index.js",
   "scripts": {
