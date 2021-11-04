@@ -8,8 +8,6 @@ module.exports = class {
         this
             .initBrowser()
             .initTwig();
-
-        this.disableTwigCache();
     }
 
     initTwig () {
@@ -30,8 +28,6 @@ module.exports = class {
         this.twig.cache(true);
         return this;
     }
-
-
 
     render (templatePath, data) {
         if (!fs.existsSync(templatePath)) throw new Error("template_file_not_exists");

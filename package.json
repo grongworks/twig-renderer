@@ -1,13 +1,13 @@
 {
   "name": "twig-renderer",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Provides functionality to render twig-templates to HTML or to PDF using Puppeteer.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "npm:publish:patch": "npm version patch --no-git-tag-version && npm run prepare && npm publish",
-    "npm:publish:minor": "npm version minor --no-git-tag-version && npm run prepare && npm publish",
-    "npm:publish:major": "npm version major --no-git-tag-version && npm run prepare && npm publish"
+    "npm:publish:patch": "npm version patch --no-git-tag-version && npm publish",
+    "npm:publish:minor": "npm version minor --no-git-tag-version && npm publish",
+    "npm:publish:major": "npm version major --no-git-tag-version && npm publish"
   },
   "repository": {
     "type": "git",
