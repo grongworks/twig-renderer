@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/grongworks/twig-renderer#readme",
   "dependencies": {
-    "puppeteer": "^11.0.0",
+    "puppeteer": "^14.3.0",
     "twig": "^1.15.4"
   }
 }
